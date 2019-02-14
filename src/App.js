@@ -1,36 +1,36 @@
 import React, { Component } from 'react';
 import './App.css';
 import _ from 'lodash';
-// import AnchorLink from 'react-anchor-link-smooth-scroll';
 import { Link as ScrollLink, animateScroll as scroll } from "react-scroll";
-// import { Parallax, Background } from 'react-parallax';
 
 import parallaxLayer1 from './parallax-mountains-layer1.jpg';
 import parallaxLayer3 from './parallax-mountains-full.jpg';
 
 class App extends Component {
   
+  // fauxBackground = React.createRef();
   backgroundMountains = React.createRef();
   content = React.createRef();
-  midground = React.createRef();
   foreground = React.createRef();
   frontForeground = React.createRef();
   
   componentDidMount(){
-    window.addEventListener("scroll", _.throttle(this.handleScroll.bind(this), 15));
+    this.handleScroll();
+    window.addEventListener("scroll", _.throttle(this.handleScroll.bind(this), 5));
     // window.addEventListener('scroll', this.handleScroll, true);
+
   }
 
   componentWillUnmount(){
     // window.removeEventListener('scroll', this.handleScroll, true);
-    window.removeEventListener("scroll", _.throttle(this.handleScroll.bind(this), 15));
+    window.removeEventListener("scroll", _.throttle(this.handleScroll.bind(this), 5));
   }
 
+  
+
   handleScroll = (e) => {
-    
     var pageOffset = window.pageYOffset;
-    this.backgroundMountains.current.style.transform = 'translateY(-' + Math.round(pageOffset * 3/2) + 'px)';
-    this.content.current.style.transform = 'translateY(-' + Math.round(pageOffset * 1.2) + 'px)';
+    this.backgroundMountains.current.style.transform = 'translateY(-' + Math.round(pageOffset * 1.5) + 'px)';
     this.foreground.current.style.transform = 'translateY(-' + Math.round(pageOffset * 1.8) + 'px)';
     this.frontForeground.current.style.transform = 'translateY(-' + Math.round(pageOffset * 2.2) + 'px)';
   }
@@ -44,7 +44,6 @@ class App extends Component {
       <div className="App">
       
         <section className="landing-section parallax-container" style={{ backgroundImage: 'url('+parallaxLayer1+')' }}>
-      
           <div ref={this.backgroundMountains} className="parallax-layer background-element">
               <div className="bounding-box-wrapper">
                 <img src={parallaxLayer3}/>
