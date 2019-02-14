@@ -24,20 +24,12 @@ class App extends Component {
   }
 
   handleScroll = (e) => {
-    console.log(window);
     
-    var backgroundOffset = window.pageYOffset * 1.5;
-    var contentOffset = window.pageYOffset * 1.2;
-    var foregroundOffset = window.pageYOffset * 1.8;
-    var frontForegroundOffset = window.pageYOffset * 2.2;
-    
-    console.log('backgroundOffset ' + backgroundOffset);
-    console.log('foreground ' + foregroundOffset);
-  
-    this.background.current.style.transform = 'translateY(-' + backgroundOffset + 'px)';
-    this.content.current.style.transform = 'translateY(-' + contentOffset + 'px)';
-    this.foreground.current.style.transform = 'translateY(-' + foregroundOffset + 'px)';
-    this.frontForeground.current.style.transform = 'translateY(-' + frontForegroundOffset + 'px)';
+    var pageOffset = window.pageYOffset;
+    this.background.current.style.transform = 'translateY(-' + pageOffset * 1.5 + 'px)';
+    this.content.current.style.transform = 'translateY(-' + pageOffset * 1.2 + 'px)';
+    this.foreground.current.style.transform = 'translateY(-' + pageOffset * 1.8 + 'px)';
+    this.frontForeground.current.style.transform = 'translateY(-' + pageOffset * 2.2 + 'px)';
   }
   
   
@@ -90,10 +82,6 @@ class App extends Component {
             </div>
           </div>
         </section>
-        
-        
-
-
         <section className="section-two full-height">
         </section>
       
