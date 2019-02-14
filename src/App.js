@@ -10,7 +10,7 @@ import parallaxLayer3 from './parallax-mountains-full.jpg';
 
 class App extends Component {
   
-  background = React.createRef();
+  backgroundMountains = React.createRef();
   content = React.createRef();
   midground = React.createRef();
   foreground = React.createRef();
@@ -29,7 +29,7 @@ class App extends Component {
   handleScroll = (e) => {
     
     var pageOffset = window.pageYOffset;
-    this.background.current.style.transform = 'translateY(-' + Math.round(pageOffset * 1.5) + 'px)';
+    this.backgroundMountains.current.style.transform = 'translateY(-' + Math.round(pageOffset * 3/2) + 'px)';
     this.content.current.style.transform = 'translateY(-' + Math.round(pageOffset * 1.2) + 'px)';
     this.foreground.current.style.transform = 'translateY(-' + Math.round(pageOffset * 1.8) + 'px)';
     this.frontForeground.current.style.transform = 'translateY(-' + Math.round(pageOffset * 2.2) + 'px)';
@@ -44,8 +44,8 @@ class App extends Component {
       <div className="App">
       
         <section className="landing-section parallax-container" style={{ backgroundImage: 'url('+parallaxLayer1+')' }}>
-          {/* <div ref={this.midground} className="parallax-layer midground-element" style={{ backgroundImage: 'url('+parallaxLayer2+')' }}></div> */}
-          <div ref={this.background} className="parallax-layer background-element">
+      
+          <div ref={this.backgroundMountains} className="parallax-layer background-element">
               <div className="bounding-box-wrapper">
                 <img src={parallaxLayer3}/>
                 <svg viewBox="0 0 1800 2400" preserveAspectRatio="xMinYMin meet">
