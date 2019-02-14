@@ -10,7 +10,6 @@ class App extends Component {
   
   // fauxBackground = React.createRef();
   backgroundMountains = React.createRef();
-  content = React.createRef();
   foreground = React.createRef();
   frontForeground = React.createRef();
   
@@ -56,7 +55,7 @@ class App extends Component {
               </svg>
             </div>
           </div>
-          <div ref={this.content} className="parallax-layer content">
+          <div className="parallax-layer content">
             <h1>Parallax</h1>
           </div>
           <div ref={this.foreground} className="parallax-layer foreground-element">
