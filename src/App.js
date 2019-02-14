@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-// import ParallaxLayer from './ParallaxLayer';
 import './App.css';
 import _ from 'lodash';
-
+// import AnchorLink from 'react-anchor-link-smooth-scroll';
+import { Link as ScrollLink, animateScroll as scroll } from "react-scroll";
 // import { Parallax, Background } from 'react-parallax';
 
 import parallaxLayer1 from './parallax-mountains-layer1.jpg';
@@ -84,8 +84,19 @@ class App extends Component {
               </svg>
             </div>
           </div>
+          <div className="parallax-section-overlay">
+            <div className="scroll-link-wrapper">
+              <ScrollLink className="scroll-link" to="section-two" smooth={true} duration={2000}>
+              <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFoAAABaCAYAAAA4qEECAAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAAFkAAABZAB0rFnsQAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAAGCSURBVHic7du7SgNBAEbhhEAk+tgGBDsbEbTV3ktjOt9GsfJWH4vsQNBkL9ndyczu+SD1/HNYwhbJZCJJkiRJkiRJkiRJkiRJGivgCLgEfoBXYAnMD72rL8AcOAPegS/gBjiOcfAV/90PMXYR+WHLfa/7PngKfG85eHCxSyJTPNnTvgd87jicYlj2sSsiA3zEGHFRMiD72DUiA5ynMiTL2MXdHivuFu8rEpgBdxWDnoFFlEEdABbAquJOt8As9rDBxE428sbA7GMnH3ljaJ3YqxRjZxM5yDF2dpGDnGJnGznIIXb2kYOUYw8mcpBi7MFFDlKKPdjIQQqxBx85OGTs0UQODhF7dJGDmLFHGzmIEXv0kYM+Yxv5jz5iG3mHLmMbuUIXsY1cU5vYRm5on9jACfBi5IaaxDZyS9T7KcNT8SkzqF9N9aLmk+2T3IUWsY3c1B6xjbyvBrGN3FaN2EbuSklsI3eN9avfEnhj/ZeOU3yFkyRJkiRJkiRJkiRJkiTF9wvzcSXAguNTSgAAAABJRU5ErkJggg=="/>
+              </ScrollLink>
+            </div>
+            
+            {/* <a className="scroll-link" href='#section-two' offset='500'>
+              <h3>MORE</h3>
+            </a> */}
+          </div>
         </section>
-        <section className="section-two full-height">
+        <section id="section-two" className="section-two full-height">
         </section>
       
       </div>

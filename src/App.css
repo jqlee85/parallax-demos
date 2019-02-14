@@ -1,3 +1,6 @@
+html {
+  /* scroll-behavior: smooth; */
+}
 body {
   background: #191919;
   padding: 0px;
@@ -75,6 +78,54 @@ body {
   padding: 0;
   margin:0;
 }
+.parallax-section-overlay {
+  position: absolute;
+  margin: 0;
+  padding: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 200;
+}
+.scroll-link-wrapper {
+  position: absolute;
+  bottom: 20px;
+  width: 100%;
+  height: 90px;
+  max-height: 90px;
+  text-align:center;
+}
+a.scroll-link, a.scroll-link:active, a.scroll-link:hover, a.scroll-link:focus {
+  position: relative;
+  margin: 0 auto;
+  color: #fff !important;
+  text-decoration: none !important;
+  
+  margin: 0;
+  padding: 0;
+  height: auto;
+  width: auto;
+  cursor: pointer;
+}
+.scroll-link {
+  
+}
+a.scroll-link:hover img {
+  animation: MoveUpDown .8s ease-in-out infinite;
+}
+.scroll-link img {
+  position: relative;
+  width: 120px;
+  height: 120px;
+  /* box-shadow: 1px 3px 25px rgba(0,0,0,.2); */
+}
+@keyframes MoveUpDown {
+  0%, 100% {
+    top: 0px;
+  }
+  50% {
+    top: 10px;
+  }
+}
 @media screen and ( min-width: 1201px ) and ( max-width: 1800px ) {
   .parallax-layer.content h1 {
     font-size: 12em;
@@ -84,16 +135,28 @@ body {
   .parallax-layer.content h1 {
     font-size: 9em;
   }
+  .scroll-link img {
+    width: 90px;
+    height: 90px;
+  }
 }
 @media screen and ( min-width: 501px ) and ( max-width: 800px ) {
   .parallax-layer.content h1 {
     font-size: 5em;
+  }
+  .scroll-link img {
+    width: 60px;
+    height: 60px;
   }
 }
 
 @media screen and (max-width: 500px) {
   .parallax-layer.content h1 {
     font-size: 3.5em;
+  }
+  .scroll-link img {
+    width: 50px;
+    height: 50px;
   }
 }
 
