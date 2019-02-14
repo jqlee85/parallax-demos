@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 // import ParallaxLayer from './ParallaxLayer';
 import './App.css';
+import _ from 'lodash';
 
 // import { Parallax, Background } from 'react-parallax';
 
@@ -16,11 +17,13 @@ class App extends Component {
   frontForeground = React.createRef();
   
   componentDidMount(){
-    window.addEventListener('scroll', this.handleScroll, true);
+    window.addEventListener("scroll", _.throttle(this.handleScroll.bind(this), 15));
+    // window.addEventListener('scroll', this.handleScroll, true);
   }
 
   componentWillUnmount(){
-    window.removeEventListener('scroll', this.handleScroll, true);
+    // window.removeEventListener('scroll', this.handleScroll, true);
+    window.removeEventListener("scroll", _.throttle(this.handleScroll.bind(this), 15));
   }
 
   handleScroll = (e) => {
