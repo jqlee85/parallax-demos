@@ -15,24 +15,24 @@ class App extends Component {
   frontForeground = React.createRef();
   
   componentDidMount(){
-    this.handleScroll();
-    window.addEventListener("scroll", _.throttle(this.handleScroll.bind(this), 5));
+    // this.handleScroll();
+    window.addEventListener("scroll", _.throttle(this.handleScroll.bind(this), 10));
     // window.addEventListener('scroll', this.handleScroll, true);
 
   }
 
   componentWillUnmount(){
     // window.removeEventListener('scroll', this.handleScroll, true);
-    window.removeEventListener("scroll", _.throttle(this.handleScroll.bind(this), 5));
+    window.removeEventListener("scroll", _.throttle(this.handleScroll.bind(this), 10));
   }
 
   
 
   handleScroll = (e) => {
-    var pageOffset = window.pageYOffset;
-    this.backgroundMountains.current.style.transform = 'translateY(-' + Math.round(pageOffset * 1.5) + 'px)';
-    this.foreground.current.style.transform = 'translateY(-' + Math.round(pageOffset * 1.8) + 'px)';
-    this.frontForeground.current.style.transform = 'translateY(-' + Math.round(pageOffset * 2.2) + 'px)';
+    let yPos = window.pageYOffset;
+    this.backgroundMountains.current.style.transform = 'translateY(-' + Math.round(yPos * 1.5) + 'px)';
+    this.foreground.current.style.transform = 'translateY(-' + Math.round(yPos * 1.8) + 'px)';
+    this.frontForeground.current.style.transform = 'translateY(-' + Math.round(yPos * 2.2) + 'px)';
   }
   
   
