@@ -29,10 +29,10 @@ class App extends Component {
   handleScroll = (e) => {
     
     var pageOffset = window.pageYOffset;
-    this.background.current.style.transform = 'translateY(-' + pageOffset * 1.5 + 'px)';
-    this.content.current.style.transform = 'translateY(-' + pageOffset * 1.2 + 'px)';
-    this.foreground.current.style.transform = 'translateY(-' + pageOffset * 1.8 + 'px)';
-    this.frontForeground.current.style.transform = 'translateY(-' + pageOffset * 2.2 + 'px)';
+    this.background.current.style.transform = 'translateY(-' + Math.round(pageOffset * 1.5) + 'px)';
+    this.content.current.style.transform = 'translateY(-' + Math.round(pageOffset * 1.2) + 'px)';
+    this.foreground.current.style.transform = 'translateY(-' + Math.round(pageOffset * 1.8) + 'px)';
+    this.frontForeground.current.style.transform = 'translateY(-' + Math.round(pageOffset * 2.2) + 'px)';
   }
   
   
