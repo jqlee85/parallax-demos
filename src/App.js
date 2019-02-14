@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import _ from 'lodash';
-import { Link as ScrollLink, animateScroll as scroll } from "react-scroll";
+import { Link as ScrollLink } from "react-scroll";
 
 import parallaxLayer1 from './parallax-mountains-layer1.jpg';
 import parallaxLayer3 from './parallax-mountains-full.jpg';
@@ -14,15 +14,16 @@ class App extends Component {
   frontForeground = React.createRef();
   
   componentDidMount(){
-    // this.handleScroll();
-    window.addEventListener("scroll", _.throttle(this.handleScroll.bind(this), 10));
+    setTimeout(function(){window.scroll(0,1);window.scroll(0,0);},50);
+    setTimeout(this.handleScroll(),100);
+    window.addEventListener("scroll", _.throttle(this.handleScroll.bind(this), 5));
     // window.addEventListener('scroll', this.handleScroll, true);
 
   }
 
   componentWillUnmount(){
     // window.removeEventListener('scroll', this.handleScroll, true);
-    window.removeEventListener("scroll", _.throttle(this.handleScroll.bind(this), 10));
+    window.removeEventListener("scroll", _.throttle(this.handleScroll.bind(this), 5));
   }
 
   
