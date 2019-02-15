@@ -2,8 +2,6 @@ import React, { Component } from 'react';
 import './App.css';
 import _ from 'lodash';
 import { Link as ScrollLink } from "react-scroll";
-
-import parallaxLayer1 from './parallax-mountains-layer1.jpg';
 import parallaxLayer3 from './parallax-mountains-full.jpg';
 
 class App extends Component {
@@ -48,7 +46,7 @@ class App extends Component {
   
   render(){
   
-    // var backgroundMountainsStyle = {transform: 'translateY(-' + Math.round(this.state.yPos * 1.5) + 'px)'};
+    var backgroundMountainsStyle = {transform: 'translateY(-' + Math.round(this.state.yPos * 1.5) + 'px)'};
     var foregroundStyle = {transform: 'translateY(-' + Math.round(this.state.yPos * 1.8) + 'px)'};
     var frontForegroundStyle = {transform: 'translateY(-' + Math.round(this.state.yPos * 2.4) + 'px)'};
     
@@ -56,8 +54,9 @@ class App extends Component {
     return (
       <div className="App">
       
-        <section className="section-one parallax-container" style={{ backgroundImage: 'url('+parallaxLayer1+')' }}>
-          {/* <div style={backgroundMountainsStyle} className="parallax-layer background-element">
+        <section className="section-one parallax-container" >
+          <div className="parallax-background" style={{ backgroundImage: 'url('+parallaxLayer3+')' }}></div>
+          <div style={backgroundMountainsStyle} className="parallax-layer background-element">
               <div className="bounding-box-wrapper">
                 <img src={parallaxLayer3}/>
                 <svg viewBox="0 0 1800 2400" preserveAspectRatio="xMinYMin meet">
@@ -68,7 +67,7 @@ class App extends Component {
                 </defs>
               </svg>
             </div>
-          </div> */}
+          </div>
           <div className="parallax-layer content">
             <h1>Parallax</h1>
           </div>
