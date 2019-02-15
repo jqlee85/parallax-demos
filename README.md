@@ -1,5 +1,10 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+## To Dos
+* Test using state to change the translateY for parallax elements
+* Test using library for parallax if state strategy doesn't improve effect on phone
+* Troubleshoot Mozilla Clip bugs 
+
 ## Available Scripts
 
 In the project directory, you can run:

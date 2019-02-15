@@ -8,6 +8,13 @@ import parallaxLayer3 from './parallax-mountains-full.jpg';
 
 class App extends Component {
   
+  constructor(props) {
+    super(props);
+    this.state = { 
+      yPos: 0,
+    };  
+  }
+
   // fauxBackground = React.createRef();
   backgroundMountains = React.createRef();
   foreground = React.createRef();
@@ -16,35 +23,41 @@ class App extends Component {
   componentDidMount(){
     setTimeout(function(){window.scroll(0,1);window.scroll(0,0);},50);
     setTimeout(this.handleScroll(),100);
-    window.addEventListener("scroll", _.throttle(this.handleScroll.bind(this), 5));
+    window.addEventListener("scroll", _.throttle(this.handleScroll.bind(this), 10));
     // window.addEventListener('scroll', this.handleScroll, true);
 
   }
 
   componentWillUnmount(){
     // window.removeEventListener('scroll', this.handleScroll, true);
-    window.removeEventListener("scroll", _.throttle(this.handleScroll.bind(this), 5));
+    window.removeEventListener("scroll", _.throttle(this.handleScroll.bind(this), 10));
   }
 
   
 
   handleScroll = (e) => {
     let yPos = window.pageYOffset;
-    this.backgroundMountains.current.style.transform = 'translateY(-' + Math.round(yPos * 1.5) + 'px)';
-    this.foreground.current.style.transform = 'translateY(-' + Math.round(yPos * 1.8) + 'px)';
-    this.frontForeground.current.style.transform = 'translateY(-' + Math.round(yPos * 2.2) + 'px)';
+    this.setState(prevState => ({
+      yPos: yPos
+    }));
+    // this.backgroundMountains.current.style.transform = 'translateY(-' + Math.round(yPos * 1.5) + 'px)';
+    // this.foreground.current.style.transform = 'translateY(-' + Math.round(yPos * 1.8) + 'px)';
+    // this.frontForeground.current.style.transform = 'translateY(-' + Math.round(yPos * 2.2) + 'px)';
   }
   
   
   render(){
   
+    var backgroundMountainsStyle = {transform: 'translateY(-' + Math.round(this.state.yPos * 1.5) + 'px)'};
+    var foregroundStyle = {transform: 'translateY(-' + Math.round(this.state.yPos * 1.8) + 'px)'};
+    var frontForegroundStyle = {transform: 'translateY(-' + Math.round(this.state.yPos * 2.2) + 'px)'};
     
     
     return (
       <div className="App">
       
         <section className="landing-section parallax-container" style={{ backgroundImage: 'url('+parallaxLayer1+')' }}>
-          <div ref={this.backgroundMountains} className="parallax-layer background-element">
+          <div style={backgroundMountainsStyle} className="parallax-layer background-element">
               <div className="bounding-box-wrapper">
                 <img src={parallaxLayer3}/>
                 <svg viewBox="0 0 1800 2400" preserveAspectRatio="xMinYMin meet">
@@ -59,7 +72,7 @@ class App extends Component {
           <div className="parallax-layer content">
             <h1>Parallax</h1>
           </div>
-          <div ref={this.foreground} className="parallax-layer foreground-element">
+          <div style={foregroundStyle} className="parallax-layer foreground-element">
               <div className="bounding-box-wrapper">
                 <img src={parallaxLayer3}/>
                 <svg viewBox="0 0 1800 2400" preserveAspectRatio="xMinYMin meet">
@@ -71,7 +84,7 @@ class App extends Component {
               </svg>
             </div>
           </div>
-          <div ref={this.frontForeground} className="parallax-layer front-foreground-element">
+          <div style={frontForegroundStyle} className="parallax-layer front-foreground-element">
               <div className="bounding-box-wrapper">
                 <img src={parallaxLayer3}/>
                 <svg viewBox="0 0 1800 2400" preserveAspectRatio="xMinYMin meet">
@@ -83,17 +96,12 @@ class App extends Component {
               </svg>
             </div>
           </div>
-          <div className="parallax-section-overlay">
-            <div className="scroll-link-wrapper">
-              <ScrollLink className="scroll-link" to="section-two" smooth={true} duration={2000}>
-              <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFoAAABaCAYAAAA4qEECAAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAAFkAAABZAB0rFnsQAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAAGCSURBVHic7du7SgNBAEbhhEAk+tgGBDsbEbTV3ktjOt9GsfJWH4vsQNBkL9ndyczu+SD1/HNYwhbJZCJJkiRJkiRJkiRJkiRJGivgCLgEfoBXYAnMD72rL8AcOAPegS/gBjiOcfAV/90PMXYR+WHLfa/7PngKfG85eHCxSyJTPNnTvgd87jicYlj2sSsiA3zEGHFRMiD72DUiA5ynMiTL2MXdHivuFu8rEpgBdxWDnoFFlEEdABbAquJOt8As9rDBxE428sbA7GMnH3ljaJ3YqxRjZxM5yDF2dpGDnGJnGznIIXb2kYOUYw8mcpBi7MFFDlKKPdjIQQqxBx85OGTs0UQODhF7dJGDmLFHGzmIEXv0kYM+Yxv5jz5iG3mHLmMbuUIXsY1cU5vYRm5on9jACfBi5IaaxDZyS9T7KcNT8SkzqF9N9aLmk+2T3IUWsY3c1B6xjbyvBrGN3FaN2EbuSklsI3eN9avfEnhj/ZeOU3yFkyRJkiRJkiRJkiRJkiTF9wvzcSXAguNTSgAAAABJRU5ErkJggg=="/>
-              </ScrollLink>
-            </div>
-            
-            {/* <a className="scroll-link" href='#section-two' offset='500'>
-              <h3>MORE</h3>
-            </a> */}
+          <div className="scroll-link-wrapper">
+            <ScrollLink className="scroll-link" to="section-two" smooth={true} duration={2000}>
+            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFoAAABaCAYAAAA4qEECAAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAAFkAAABZAB0rFnsQAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAAGCSURBVHic7du7SgNBAEbhhEAk+tgGBDsbEbTV3ktjOt9GsfJWH4vsQNBkL9ndyczu+SD1/HNYwhbJZCJJkiRJkiRJkiRJkiRJGivgCLgEfoBXYAnMD72rL8AcOAPegS/gBjiOcfAV/90PMXYR+WHLfa/7PngKfG85eHCxSyJTPNnTvgd87jicYlj2sSsiA3zEGHFRMiD72DUiA5ynMiTL2MXdHivuFu8rEpgBdxWDnoFFlEEdABbAquJOt8As9rDBxE428sbA7GMnH3ljaJ3YqxRjZxM5yDF2dpGDnGJnGznIIXb2kYOUYw8mcpBi7MFFDlKKPdjIQQqxBx85OGTs0UQODhF7dJGDmLFHGzmIEXv0kYM+Yxv5jz5iG3mHLmMbuUIXsY1cU5vYRm5on9jACfBi5IaaxDZyS9T7KcNT8SkzqF9N9aLmk+2T3IUWsY3c1B6xjbyvBrGN3FaN2EbuSklsI3eN9avfEnhj/ZeOU3yFkyRJkiRJkiRJkiRJkiTF9wvzcSXAguNTSgAAAABJRU5ErkJggg=="/>
+            </ScrollLink>
           </div>
+          <div className="scroll-protector"></div>
         </section>
         <section id="section-two" className="section-two full-height">
         </section>

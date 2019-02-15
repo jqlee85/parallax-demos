@@ -20,7 +20,7 @@ body {
   background-size: cover;
   background-position:center top;
   overflow-x: hidden;
-  overflow-y: visible;
+  overflow-y: scroll;
 }
 .parallax-layer {
   position: fixed;
@@ -32,11 +32,12 @@ body {
   height: 100vh;
   background-size: cover;
   background-position: center top;
+  overflow-y: visible;
 }
 .parallax-layer.content {
-  position: relative;
+  position: absolute;
   height: auto;
-  /* margin-top: 38vh; */
+  margin-top: 38vh;
   text-align: center;
   color: #fff;
   z-index: 110;
@@ -78,12 +79,10 @@ body {
   padding: 0;
   margin:0;
 }
-.parallax-section-overlay {
-  position: absolute;
-  margin: 0;
-  padding: 0;
-  width: 100vw;
+.scroll-protector {
+  width: 100%;
   height: 100vh;
+  position: fixed;
   z-index: 200;
 }
 .scroll-link-wrapper {
@@ -93,21 +92,21 @@ body {
   height: 90px;
   max-height: 90px;
   text-align:center;
+  z-index: 300;
 }
 a.scroll-link, a.scroll-link:active, a.scroll-link:hover, a.scroll-link:focus {
   position: relative;
+  display: flex;
+  align-items:center;
+  justify-content: center;
   margin: 0 auto;
   color: #fff !important;
   text-decoration: none !important;
-  
   margin: 0;
   padding: 0;
   height: auto;
   width: auto;
   cursor: pointer;
-}
-.scroll-link {
-  
 }
 a.scroll-link:hover img {
   animation: MoveUpDown .8s ease-in-out infinite;
