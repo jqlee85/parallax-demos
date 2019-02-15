@@ -85,27 +85,21 @@ body {
   position: fixed;
   z-index: 200;
 }
+.scroll-link-wrapper, a.scroll-link, .scroll-link img {
+  width: 120px;
+  height: 120px;
+}
 .scroll-link-wrapper {
   position: absolute;
   bottom: 20px;
-  width: 100%;
-  height: 90px;
-  max-height: 90px;
-  text-align:center;
+  text-align: center;
   z-index: 300;
 }
 a.scroll-link, a.scroll-link:active, a.scroll-link:hover, a.scroll-link:focus {
-  position: relative;
-  display: flex;
-  align-items:center;
-  justify-content: center;
-  margin: 0 auto;
+  margin: 0;
   color: #fff !important;
   text-decoration: none !important;
-  margin: 0;
   padding: 0;
-  height: auto;
-  width: auto;
   cursor: pointer;
 }
 a.scroll-link:hover img {
@@ -113,9 +107,6 @@ a.scroll-link:hover img {
 }
 .scroll-link img {
   position: relative;
-  width: 120px;
-  height: 120px;
-  /* box-shadow: 1px 3px 25px rgba(0,0,0,.2); */
 }
 .section-two {
   z-index: 500;
@@ -123,10 +114,10 @@ a.scroll-link:hover img {
 }
 @keyframes MoveUpDown {
   0%, 100% {
-    top: 0px;
+    transform:translateY(0px);
   }
   50% {
-    top: 10px;
+    transform:translateY(10px);
   }
 }
 @media screen and ( min-width: 1201px ) and ( max-width: 1800px ) {
@@ -138,7 +129,7 @@ a.scroll-link:hover img {
   .parallax-layer.content h1 {
     font-size: 9em;
   }
-  .scroll-link img {
+  .scroll-link-wrapper, a.scroll-link, .scroll-link img {
     width: 90px;
     height: 90px;
   }
@@ -147,7 +138,7 @@ a.scroll-link:hover img {
   .parallax-layer.content h1 {
     font-size: 5em;
   }
-  .scroll-link img {
+  .scroll-link-wrapper, a.scroll-link, .scroll-link img {
     width: 60px;
     height: 60px;
   }
@@ -157,7 +148,7 @@ a.scroll-link:hover img {
   .parallax-layer.content h1 {
     font-size: 3.5em;
   }
-  .scroll-link img {
+  .scroll-link-wrapper, a.scroll-link, .scroll-link img {
     width: 50px;
     height: 50px;
   }
