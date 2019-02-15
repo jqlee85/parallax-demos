@@ -6,6 +6,12 @@ body {
   padding: 0px;
   margin: 0px;
 }
+.App {
+  position: relative;
+}
+.section-one {
+  z-index:10;
+}
 .full-height {
   width: 100%;
   height: 100vh;
@@ -109,6 +115,7 @@ a.scroll-link:hover img {
   position: relative;
 }
 .section-two {
+  position: relative;
   z-index: 500 !important;
   background: #191919;
 }

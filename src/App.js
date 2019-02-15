@@ -56,7 +56,7 @@ class App extends Component {
     return (
       <div className="App">
       
-        <section className="landing-section parallax-container" style={{ backgroundImage: 'url('+parallaxLayer1+')' }}>
+        <section className="section-one parallax-container" style={{ backgroundImage: 'url('+parallaxLayer1+')' }}>
           <div style={backgroundMountainsStyle} className="parallax-layer background-element">
               <div className="bounding-box-wrapper">
                 <img src={parallaxLayer3}/>
