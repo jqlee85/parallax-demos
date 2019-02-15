@@ -124,7 +124,10 @@ a.scroll-link:hover img {
 .section-two {
   position: relative;
   z-index: 500 !important;
-  background: #191919;
+  background: -moz-linear-gradient(top, rgba(25,25,25,0) 0%, rgba(25,25,25,1) 35%, rgba(25,25,25,1) 100%); /* FF3.6-15 */
+  background: -webkit-linear-gradient(top, rgba(25,25,25,0) 0%,rgba(25,25,25,1) 35%,rgba(25,25,25,1) 100%); /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(to bottom, rgba(25,25,25,0) 0%,rgba(25,25,25,1) 35%,rgba(25,25,25,1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00191919', endColorstr='#191919',GradientType=0 ); /* IE6-9 */
 }
 @keyframes MoveUpDown {
   0%, 100% {
