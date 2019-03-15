@@ -1,9 +1,15 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Parallax Effect Demo
+A Create React App demo utilzing a parallax effect and svg transparency masks to create multi-layered paralax effects from a single jpg image. Using this technique you can achieve cool parallax effects with great performance, since you can potentially use a single jpg image, rather than multiple png images.
+
+## Live Demo
+[LIVE DEMO](https://parallaxdemo.netlify.com/)
 
 ## To Dos
 * Test using state to change the translateY for parallax elements
 * Test using library for parallax if state strategy doesn't improve effect on phone
 * Troubleshoot Mozilla Clip bugs 
+
+# Running Project
 
 ## Available Scripts
 
